@@ -1,8 +1,11 @@
-default: install
+default: musl
 
 alias i := install
 install:
   cargo install --path .
+
+musl:
+  cross install --path . --target x86_64-unknown-linux-musl
 
 alias t := test
 test *args:
