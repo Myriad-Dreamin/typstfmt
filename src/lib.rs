@@ -28,6 +28,7 @@ mod utils;
 
 mod binary;
 mod code_blocks;
+mod import;
 mod markup;
 mod math;
 mod params;
@@ -80,6 +81,7 @@ fn visit(node: &LinkedNode, ctx: &mut Ctx) -> String {
         Equation => math::format_equation(node, &res, ctx),
         Math => math::format_math(node, &res, ctx),
         Str => no_format(node, &res, ctx),
+        ModuleImport => import::format_module_import(node, &res, ctx),
         _ => format_default(node, &res, ctx),
     };
     if node.children().count() == 0 {

@@ -153,6 +153,10 @@ fn tree_are_equal(node: &LinkedNode, other_node: &LinkedNode) -> bool {
         .filter(|x| !should_ignore(x))
         .collect_vec();
     if fchildren.len() != fchildren_oth.len() {
+        // Ignore that parentheses can be added automatically.
+        if node.kind() == ModuleImport {
+            return true;
+        }
         debug!(
             "children count differ! {:?}\n{:?}",
             fchildren, fchildren_oth
@@ -190,6 +194,7 @@ fn comma_gets_ignored_in_comparison() {
 mod code_block;
 mod comments;
 mod conditionals;
+mod import;
 mod lists;
 mod markup;
 mod math;
