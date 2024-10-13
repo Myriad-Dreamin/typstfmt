@@ -81,6 +81,20 @@ macro_rules! make_test {
     };
 }
 
+/// Like [make_test], but sets `max_line_length` to `120`.
+macro_rules! make_wide_test {
+    ($test_name:ident, $input:expr $(,)?) => {
+        make_test!(
+            $test_name,
+            $input,
+            config::Config {
+                max_line_length: 120,
+                ..Default::default()
+            }
+        );
+    };
+}
+
 /// Tests formatting the snippets doesn't change it.
 macro_rules! test_eq {
     ($test_name:ident, $input:expr $(,)?) => {
