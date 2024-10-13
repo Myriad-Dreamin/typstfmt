@@ -1,3 +1,21 @@
+This is [my][@Andrew15-5] fork of [typstfmt] by [@astrale-sharp].
+
+I revived this project, because:
+1. after trying [typstyle], I noticed that it
+doesn't break some things (at all, or partially);
+2. this is the first and only formatter that I've used for a long time.
+
+In this project I will be shaping the formatter to my liking. You might like
+its behavior as well, so give it a try. ;)
+
+The versioning now follows Typst's version with exclusion for patch version.
+Currently, Typst is 0.12(.0-rc1), so typstfmt will be 0.12. The patch version
+is reserved to typstfmt's updates. If v0.12 will get 101 updates, then it will
+be v0.12.100. Each update will probably introduce some breaking changes, so
+keep that in mind.
+
+---
+
 Basic formatter for the Typst language ~~with a future~~ without a future 😄!
 
 It's been a fun ride everyone but that's where I stop, feel free to fork etc.
@@ -36,7 +54,7 @@ If I get the formatter fever again I'll probably try contributing to https://git
 - Good defaults.
 - Config file: run `typstfmt --make-default-config` to create a typstfmt.toml
   file that you can customize!
-  
+
   The following lines show the contents of a simple `typstfmt.toml` file:
   ```toml
   indent_space = 2
@@ -147,10 +165,22 @@ finding which range, when formatted, was not valid anymore (broke the semantic o
 
 # Thanks (chronological)
 
-- @arnaudgolfouse, for the discussion, designs and the precious friendship.
-- @laurmaedje, @reknih and the typst community for the good vibes, the
+- [@arnaudgolfouse], for the discussion, designs and the precious friendship.
+- [@laurmaedje], [@reknih] and the typst community for the good vibes, the
   interesting talks, the support and ofc, Typst.
-- @jeffa5 for contributing ideas on the initial design
-- @Andrew15-5, for the many suggestions, issues and feedback.
-- @aghriss for a bug fix
-- @taooceros for the alignment of math block
+- [@jeffa5] for contributing ideas on the initial design.
+- [@Andrew15-5], for the many suggestions, issues and feedback.
+- @aghriss for a bug fix.
+- [@taooceros] for the alignment of math block.
+- Other contributors.
+
+[@Andrew15-5]: https://github.com/Andrew15-5
+[@arnaudgolfouse]: https://github.com/arnaudgolfouse
+[@astrale-sharp]: https://github.com/astrale-sharp
+[@jeffa5]: https://github.com/jeffa5
+[@laurmaedje]: https://github.com/laurmaedje
+[@reknih]: https://github.com/reknih
+[@taooceros]: https://github.com/taooceros
+
+[typstfmt]: https://github.com/astrale-sharp/typstfmt
+[typstyle]: https://github.com/Enter-tainer/typstyle
