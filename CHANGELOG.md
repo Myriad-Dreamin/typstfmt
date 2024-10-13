@@ -1,5 +1,10 @@
 # Latest
 
+# Release 0.12.0
+
+- fix!: long (and maybe short) parameters are again laid out one per line
+- feat!: support the new parenthesized module items import (improved old one)
+
 # Release 0.2.7
 
 - String literal preserved in math mode @monaqa
@@ -27,13 +32,13 @@
 
 # Release 0.2.1#1817538
 - adds conditional formatting, nested if else etc
-- fix a bug where push_raw_indent was trimming lines 
+- fix a bug where push_raw_indent was trimming lines
 - improve behavior of formatting arguments in a breaking manner
 - Some cleanups, nitpicks etc.
- 
+
 # Release 0.2.0
 
-Features: 
+Features:
 - Linewrap for content
 - On Off feature
 - Config Files
