@@ -92,3 +92,45 @@ test_eq!(
     "f[ this loooooooooooooooooooooooooooong text is not supposed to not be indented
 at all ]"
 );
+
+make_test!(
+    many_long_parameters,
+    r#"#let title-slide(extra: none, ..args) = touying-slide-wrapper(self => {
+  let info = self.info + args.named()
+  let body = {
+    set text(fill: self.colors.neutral-darkest)
+    set align(horizon)
+    block(width: 100%, inset: 2em, {
+      let logo = pad(right: 0.5cm, scale(200%, info.logo))
+      components.left-and-right({
+        text(size: 1.3em, text(weight: "medium", info.title))
+        if info.subtitle != none {
+          linebreak()
+          text(size: 0.9em, info.subtitle)
+        }
+      }, text(2em, utils.call-or-display(self, logo)))
+      line(length: 100%, stroke: .05em + self.colors.primary-light)
+      set text(size: .8em)
+      if info.author != none {
+        block(spacing: 1em, info.author)
+      }
+      if info.date != none {
+        block(spacing: 1em, utils.display-info-date(self))
+      }
+      set text(size: .8em)
+      if info.institution != none {
+        block(spacing: 1em, info.institution)
+      }
+      if extra != none {
+        block(spacing: 1em, extra)
+      }
+    })
+  }
+  self = utils.merge-dicts(
+    self,
+    config-common(freeze-slide-counter: true),
+    config-page(fill: self.colors.neutral-lightest),
+  )
+  touying-slide(self: self, body)
+})"#
+);
