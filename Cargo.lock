@@ -646,8 +646,9 @@ dependencies = [
 
 [[package]]
 name = "typst-syntax"
-version = "0.12.0-rc1"
-source = "git+https://github.com/typst/typst.git?tag=v0.12.0-rc1#d5b1f4a6f9b16166b4affe8c49d3f433a4b425c8"
+version = "0.12.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "05b7be8b6ed6b2cb39ca495947d548a28d7db0ba244008e44c5a759120327693"
 dependencies = [
  "ecow",
  "once_cell",
@@ -663,8 +664,9 @@ dependencies = [
 
 [[package]]
 name = "typst-utils"
-version = "0.12.0-rc1"
-source = "git+https://github.com/typst/typst.git?tag=v0.12.0-rc1#d5b1f4a6f9b16166b4affe8c49d3f433a4b425c8"
+version = "0.12.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8f0305443ed97f0b658471487228f86bf835705e7525fbdcc671cebd864f7a40"
 dependencies = [
  "once_cell",
  "portable-atomic",
