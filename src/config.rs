@@ -1,12 +1,13 @@
 use serde::Deserialize;
 use serde::Serialize;
-#[derive(Debug, Clone, Copy, Serialize, Deserialize)]
+#[derive(Debug, Clone, Copy, Hash, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(default)]
 #[serde(deny_unknown_fields)]
 pub struct Config {
     pub indent_space: usize,
     pub max_line_length: usize,
-    /// If enabled, when breaking arguments, it will try to keep more on one line.
+    /// If enabled, when breaking arguments, it will try to keep more on one
+    /// line.
     pub experimental_args_breaking_consecutive: bool,
     pub line_wrap: bool,
 }
