@@ -32,14 +32,17 @@ fn init() {
     let _ = tracing::subscriber::set_global_default(subscriber);
 }
 
-/// This makes :
-/// - A snapshot test where you're prompted to say if you're snippet is nicely formatted.
-/// (see README.md)
-/// - A double format test (if an input is formatted twice it should give the same result)
-/// - An AST test (if an input is formatted, the output AST should be the same as the input).
+/// This makes:
+/// - A snapshot test where you're prompted to say if you're snippet is nicely
+///   formatted. (see README.md)
+/// - A double format test (if an input is formatted twice it should give the
+///   same result)
+/// - An AST test (if an input is formatted, the output AST should be the same
+///   as the input).
 ///
-/// TODO : currently for the AST test, all Space and parbeak are skipped, maybe there is a better way.
-/// TODO : AST check when we had a trailing comma, find a way to allow it to be able to run test for these snippets too.
+/// TODO : currently for the AST test, all Space and parbeak are skipped, maybe
+/// there is a better way. TODO : AST check when we had a trailing comma, find a
+/// way to allow it to be able to run test for these snippets too.
 macro_rules! make_test {
     ($test_name:ident, $input:expr $(,)?) => {
         make_test!($test_name, $input, Config::default());
