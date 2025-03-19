@@ -51,7 +51,8 @@ pub(crate) fn format_markup(parent: &LinkedNode, children: &[String], ctx: &mut 
 
     for (idx, (s, node)) in children.iter().zip(parent.children()).enumerate() {
         match node.kind() {
-            _ if ctx.off => res.push_str(&deep_no_format(&node)), // todo, interaction with line below?
+            _ if ctx.off => res.push_str(&deep_no_format(&node)), /* todo, interaction with line */
+            // below?
             _ if skip_until.is_some_and(|skip| idx <= skip) => {}
             LineComment | BlockComment => {
                 let buf = format_comment_handling_disable(&node, &[], ctx);
@@ -72,10 +73,10 @@ pub(crate) fn format_markup(parent: &LinkedNode, children: &[String], ctx: &mut 
                 // careful, s has already been formatted.
                 ctx.push_raw_in(s, &mut res);
             }
-            Text if !ctx.config.line_wrap => ctx.push_raw_in(s, &mut res),
-            Text => {
-                // We eat all the following nodes if they're in `[Space, Text, Emph, Strong, Label, Ref]`
-                // then we format ourselves breaking or spacing.
+            MathText | Text if !ctx.config.line_wrap => ctx.push_raw_in(s, &mut res),
+            MathText | Text => {
+                // We eat all the following nodes if they're in `[Space, Text, Emph, Strong,
+                // Label, Ref]` then we format ourselves breaking or spacing.
                 skip_until = Some(idx);
                 let mut this = node;
                 let mut add = s.to_string();
@@ -84,8 +85,8 @@ pub(crate) fn format_markup(parent: &LinkedNode, children: &[String], ctx: &mut 
                     match next.as_ref() {
                         Some(next) => {
                             if ![
-                                Space, Text, Emph, Strong, Math, Escape, Shorthand, SmartQuote,
-                                Link, Label, Ref,
+                                Space, MathText, Text, Emph, Strong, Math, Escape, Shorthand,
+                                SmartQuote, Link, Label, Ref,
                             ]
                             .contains(&next.kind())
                             {
